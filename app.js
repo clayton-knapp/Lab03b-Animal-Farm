@@ -9,6 +9,18 @@ const horseAudioEl = document.getElementById('horse-audio');
 
 const displayLastEl = document.getElementById('display-last');
 
+
+//Make function that takes 2 arguments of what animal sound and a string with which animal name
+// Plays the sound of the animal specified in the argument
+// Displays the text of the animal specified int the argument
+
+function playAnimalSound(someSoundEl, someWord) {
+  someSoundEl.play();
+  displayLastEl.textContent = someWord;
+
+}
+
+
 // initialize global state
 
 // set event listeners 
@@ -17,34 +29,31 @@ const displayLastEl = document.getElementById('display-last');
   // update DOM to reflect the new state
 
 catPicEl.addEventListener('click', ()=>{
-    catAudioEl.play();
-    displayLastEl.textContent = "Cat";
-})
+    playAnimalSound(catAudioEl, 'Cat');
+});
 
 dogPicEl.addEventListener('click', ()=>{
-    dogAudioEl.play();
-    displayLastEl.textContent = "Dog";
-})
+    playAnimalSound(dogAudioEl, 'Dog');
+});
 
 horsePicEl.addEventListener('click', ()=>{
-    horseAudioEl.play();
-    displayLastEl.textContent = "Horse";
-})
+    playAnimalSound(horseAudioEl, 'Horse');
+});
 
 
 //KEYDOWN
 
 document.addEventListener('keydown', (event)=>{
   if (event.key === "c"){
-    catAudioEl.play();
-    displayLastEl.textContent = "Cat";
+    playAnimalSound(catAudioEl, 'Cat');
   }
   if (event.key === "d") {
-    dogAudioEl.play();
-    displayLastEl.textContent = "Dog";
+    playAnimalSound(dogAudioEl, 'Dog');
   }
   if (event.key === "h") {
-    horseAudioEl.play();
-    displayLastEl.textContent = "Horse";
+    playAnimalSound(horseAudioEl, 'Horse');
   }
 });
+
+
+
